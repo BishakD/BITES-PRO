@@ -1,0 +1,132 @@
+/* ============================================================
+   BITES — Ingredient Story Split
+   Asymmetric editorial layout with image mask reveal
+   ============================================================ */
+
+.story {
+  background-color: var(--bites-ivory);
+  overflow: hidden;
+}
+
+.story__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 5vw, 100px);
+  align-items: center;
+}
+
+/* ── Image Side ──────────────────────────────────────────── */
+.story__image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  /* Slight rotation for asymmetry */
+  transform: rotate(-1.5deg);
+}
+
+.story__image-mask {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bites-ivory);
+  transform-origin: right center;
+  z-index: 2;
+  /* Mask covers the image initially, animated away to reveal */
+}
+
+.story__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+/* ── Text Side ───────────────────────────────────────────── */
+.story__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+.story__label {
+  font-family: var(--font-hand);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-brown);
+}
+
+.story__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: var(--ls-section);
+  color: var(--bites-green);
+}
+
+.story__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--bites-green);
+  max-width: 48ch;
+}
+
+.story__link {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: gap var(--dur-ui) var(--ease-out);
+}
+
+.story__link:hover {
+  gap: 14px;
+}
+
+.story__link-arrow {
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background-color: var(--bites-green);
+  position: relative;
+}
+
+.story__link-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid var(--bites-green);
+  border-right: 1.5px solid var(--bites-green);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .story__inner {
+    grid-template-columns: 1fr;
+    padding-inline: var(--space-page-x-mobile);
+    gap: 32px;
+  }
+
+  .story__image-wrap {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,255 @@
+/* ============================================================
+   BITES — Full Menu Overview
+   Two-column compact menu with thumbnails, filtering, dividers
+   ============================================================ */
+
+.menu-overview {
+  background-color: var(--bites-ivory);
+  overflow: hidden;
+}
+
+.menu-overview__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.menu-overview__header {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.menu-overview__icon {
+  width: 40px;
+  height: 40px;
+  margin-inline: auto;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.menu-overview__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-style: italic;
+  color: var(--bites-green);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.menu-overview__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--bites-green);
+  opacity: 0.65;
+}
+
+/* ── Category Tabs ───────────────────────────────────────── */
+.menu-overview__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 4vw, 48px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.menu-overview__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-overview__tab {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--bites-green);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--bites-green);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--dur-ui) var(--ease-out),
+              color var(--dur-ui) var(--ease-out);
+}
+
+.menu-overview__tab:hover,
+.menu-overview__tab.is-active {
+  background-color: var(--bites-green);
+  color: var(--bites-ivory);
+}
+
+/* ── Menu Grid ───────────────────────────────────────────── */
+.menu-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(32px, 4vw, 64px);
+}
+
+/* ── Menu Row ────────────────────────────────────────────── */
+.menu-overview__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding-block: 16px;
+  border-bottom: 1px dashed rgba(6, 77, 59, 0.2);
+  opacity: 0;
+  transform: translateY(14px);
+  will-change: transform, opacity;
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              transform var(--dur-reveal) var(--ease-out);
+}
+
+.menu-overview__row.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-overview__row.is-hidden {
+  display: none;
+}
+
+/* ── Thumbnail ───────────────────────────────────────────── */
+.menu-overview__thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  transform: scale(0.96);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.menu-overview__row.is-visible .menu-overview__thumb {
+  transform: scale(1);
+}
+
+/* ── Item Info ───────────────────────────────────────────── */
+.menu-overview__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.menu-overview__name {
+  font-family: var(--font-display);
+  font-size: var(--text-menu-name);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--bites-green);
+  line-height: 1.2;
+}
+
+.menu-overview__desc {
+  font-family: var(--font-body);
+  font-size: var(--text-menu-desc);
+  color: var(--bites-green);
+  opacity: 0.6;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-overview__dietary {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.menu-overview__dietary-tag {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.menu-overview__dietary-tag--veg {
+  background-color: rgba(6, 77, 59, 0.1);
+  color: var(--bites-green);
+}
+
+.menu-overview__dietary-tag--spicy {
+  background-color: rgba(200, 60, 40, 0.1);
+  color: #b53a2a;
+}
+
+/* ── Price ────────────────────────────────────────────────── */
+.menu-overview__price {
+  font-family: var(--font-display);
+  font-size: var(--text-menu-price);
+  color: var(--bites-green);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ── Bottom CTA ──────────────────────────────────────────── */
+.menu-overview__footer {
+  text-align: center;
+  margin-top: clamp(36px, 5vw, 60px);
+}
+
+.menu-overview__order-btn {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: var(--bites-green);
+  color: var(--bites-ivory);
+  padding: 14px 36px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform var(--dur-ui) var(--ease-out),
+              background-color var(--dur-ui) var(--ease-out);
+}
+
+.menu-overview__order-btn:hover {
+  transform: translateY(-2px);
+  background-color: #053a2d;
+}
+
+.menu-overview__order-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--bites-yellow);
+  stroke-width: 2;
+  fill: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .menu-overview__inner {
+    padding-inline: var(--space-page-x-mobile);
+  }
+
+  .menu-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-overview__thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .menu-overview__tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding-inline: var(--space-page-x-mobile);
+  }
+
+  .menu-overview__desc {
+    white-space: normal;
+  }
+}

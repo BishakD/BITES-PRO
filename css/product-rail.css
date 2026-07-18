@@ -1,0 +1,307 @@
+/* ============================================================
+   BITES — Draggable Product Rail
+   Horizontal showcase with transparent-background products,
+   drag interaction, inertia, hover effects
+   ============================================================ */
+
+.product-rail {
+  background-color: var(--bites-ivory);
+  overflow: hidden;
+  position: relative;
+}
+
+.product-rail__header {
+  text-align: center;
+  padding-inline: var(--space-page-x);
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.product-rail__title {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bites-green);
+  margin-bottom: 8px;
+}
+
+.product-rail__subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  font-style: italic;
+  color: var(--bites-green);
+  line-height: 1;
+}
+
+/* ── Drag Prompt ─────────────────────────────────────────── */
+.product-rail__prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bites-green);
+  opacity: 0.6;
+  margin-top: 16px;
+  transition: opacity var(--dur-medium) var(--ease-out);
+}
+
+.product-rail__prompt.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-rail__prompt-text-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .product-rail__prompt-text-desktop {
+    display: none;
+  }
+  .product-rail__prompt-text-mobile {
+    display: inline;
+  }
+}
+
+.product-rail__prompt-arrow {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--bites-green);
+  position: relative;
+}
+
+.product-rail__prompt-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid var(--bites-green);
+  border-right: 1px solid var(--bites-green);
+  transform: rotate(45deg);
+}
+
+/* ── Track Container ─────────────────────────────────────── */
+.product-rail__viewport {
+  position: relative;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: pan-y;
+  padding-block: 20px 40px;
+}
+
+.product-rail__viewport:active {
+  cursor: grabbing;
+}
+
+.product-rail__track {
+  display: flex;
+  gap: clamp(20px, 3vw, 48px);
+  padding-inline: var(--space-page-x);
+  will-change: transform;
+}
+
+/* ── Product Item ────────────────────────────────────────── */
+.product-rail__item {
+  flex: 0 0 auto;
+  width: clamp(240px, 22vw, 340px);
+  text-align: center;
+  position: relative;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.product-rail__item-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.product-rail__item-image {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform var(--dur-ui) var(--ease-out),
+              filter var(--dur-ui) var(--ease-out);
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Fix for chocolate pastry image missing background */
+img[src*="chocolate-pastry"] {
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.product-rail__item-shadow {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 12px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(6, 77, 59, 0.12) 0%,
+    transparent 70%
+  );
+  transition: width var(--dur-ui) var(--ease-out),
+              opacity var(--dur-ui) var(--ease-out);
+}
+
+.product-rail__item-name {
+  font-family: var(--font-display);
+  font-size: var(--text-product);
+  text-transform: uppercase;
+  line-height: var(--lh-product);
+  letter-spacing: -0.01em;
+  color: var(--bites-green);
+  margin-bottom: 4px;
+}
+
+.product-rail__item-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.9vw, 0.9rem);
+  color: var(--bites-green);
+  opacity: 0.7;
+  line-height: 1.4;
+  max-width: 28ch;
+  margin-inline: auto;
+}
+
+.product-rail__item-detail {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-yellow);
+  background-color: var(--bites-green);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur-ui) var(--ease-out),
+              transform var(--dur-ui) var(--ease-out);
+}
+
+/* ── Hover / Focus Effects ───────────────────────────────── */
+.product-rail__item:hover .product-rail__item-image,
+.product-rail__item:focus-within .product-rail__item-image {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.product-rail__item:hover .product-rail__item-shadow,
+.product-rail__item:focus-within .product-rail__item-shadow {
+  width: 70%;
+  opacity: 0.8;
+}
+
+.product-rail__item:hover .product-rail__item-detail,
+.product-rail__item:focus-within .product-rail__item-detail {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nav Arrows ──────────────────────────────────────────── */
+.product-rail__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bites-green);
+  background-color: var(--bites-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background-color var(--dur-ui) var(--ease-out),
+              transform var(--dur-ui) var(--ease-out);
+  cursor: pointer;
+}
+
+.product-rail__nav:hover {
+  background-color: var(--bites-green);
+}
+
+.product-rail__nav:hover svg {
+  stroke: var(--bites-ivory);
+}
+
+.product-rail__nav svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--bites-green);
+  stroke-width: 2;
+  fill: none;
+  transition: stroke var(--dur-ui) var(--ease-out);
+}
+
+.product-rail__nav--prev {
+  left: clamp(12px, 2vw, 28px);
+}
+
+.product-rail__nav--next {
+  right: clamp(12px, 2vw, 28px);
+}
+
+/* ── Doodle decorations ──────────────────────────────────── */
+.product-rail__doodle {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .product-rail__item {
+    width: clamp(200px, 35vw, 280px);
+  }
+  
+  .product-rail__nav {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-rail__item {
+    width: clamp(260px, 72vw, 310px);
+  }
+
+  .product-rail__nav {
+    display: none;
+  }
+
+  .product-rail__track {
+    padding-inline: var(--space-page-x-mobile);
+    gap: 16px;
+  }
+
+  .product-rail__header {
+    padding-inline: var(--space-page-x-mobile);
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .product-rail__item-image {
+    transition: none;
+  }
+}

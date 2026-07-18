@@ -1,0 +1,311 @@
+/* ============================================================
+   BITES — Locations Section
+   Editorial location names with crossfading image
+   ============================================================ */
+
+.locations {
+  background-color: var(--bites-ivory);
+  overflow: hidden;
+}
+
+.locations__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+
+.locations__header {
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.locations__label {
+  font-family: var(--font-hand);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-brown);
+  margin-bottom: 8px;
+}
+
+.locations__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: var(--ls-section);
+  color: var(--bites-green);
+}
+
+/* ── Location List ───────────────────────────────────────── */
+.locations__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.locations__item {
+  padding-block: clamp(20px, 3vw, 32px);
+  border-bottom: 1.5px solid rgba(6, 77, 59, 0.15);
+  cursor: pointer;
+  transition: padding-left var(--dur-ui) var(--ease-out);
+}
+
+.locations__item:first-child {
+  border-top: 1.5px solid rgba(6, 77, 59, 0.15);
+}
+
+.locations__item:hover,
+.locations__item.is-active {
+  padding-left: 12px;
+}
+
+.locations__item-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--bites-green);
+  margin-bottom: 8px;
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+.locations__item.is-active .locations__item-name {
+  color: var(--bites-brown);
+}
+
+.locations__item-details {
+  font-family: var(--font-body);
+  font-size: var(--text-menu-desc);
+  color: var(--bites-green);
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+.locations__item-hours {
+  margin-top: 4px;
+}
+
+.locations__item-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-weight: 600;
+  transition: gap var(--dur-ui) var(--ease-out);
+}
+
+.locations__item-link:hover {
+  gap: 12px;
+}
+
+/* ── Preview Image ───────────────────────────────────────── */
+.locations__preview {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--bites-cream);
+}
+
+.locations__preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--dur-medium) var(--ease-out),
+              transform var(--dur-cinematic) var(--ease-out);
+}
+
+.locations__preview-img.is-fading {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .locations__inner {
+    grid-template-columns: 1fr;
+    padding-inline: var(--space-page-x-mobile);
+  }
+
+  .locations__preview {
+    position: relative;
+    top: auto;
+    margin-bottom: 24px;
+    order: -1;
+  }
+}
+
+
+/* ============================================================
+   BITES — Newsletter / Order CTA
+   High-energy conversion section
+   ============================================================ */
+
+.contact {
+  background-color: var(--bites-ivory);
+  padding-block: var(--space-section-y);
+}
+
+.contact__inner {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+}
+
+.contact__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  color: var(--bites-green);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  margin-bottom: 12px;
+}
+
+.contact__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  text-transform: uppercase;
+  color: var(--bites-green);
+  line-height: 0.9;
+  letter-spacing: var(--ls-section);
+  margin-bottom: 24px;
+}
+
+.contact__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--bites-green);
+  opacity: 0.7;
+  max-width: 60ch;
+  margin-bottom: 48px;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact__card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact__card-icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(6, 77, 59, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bites-green);
+  flex-shrink: 0;
+}
+
+.contact__card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact__card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--bites-green);
+  margin-bottom: 8px;
+}
+
+.contact__card-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--bites-green);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.contact__form {
+  background-color: white;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.contact__form-group {
+  margin-bottom: 24px;
+}
+
+.contact__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--bites-green);
+  margin-bottom: 8px;
+}
+
+.contact__input,
+.contact__textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1.5px solid rgba(6, 77, 59, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--bites-green);
+  transition: border-color var(--dur-ui) ease;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+  outline: none;
+  border-color: var(--bites-yellow);
+}
+
+.contact__textarea {
+  resize: vertical;
+}
+
+.contact__submit {
+  width: 100%;
+  padding: 18px;
+  background-color: var(--bites-green);
+  color: var(--bites-ivory);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--dur-ui) ease;
+  margin-top: 16px;
+}
+
+.contact__submit:hover {
+  background-color: #053a2d;
+}
+
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .contact__form {
+    padding: 24px;
+  }
+}

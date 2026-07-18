@@ -1,0 +1,279 @@
+/* ============================================================
+   BITES — Featured Product Highlight
+   Full-width color block with giant product cutout overlap
+   ============================================================ */
+
+.featured {
+  position: relative;
+  overflow: visible;
+  padding-block: 0;
+  margin-block: clamp(40px, 8vw, 100px);
+}
+
+.featured__bg {
+  background-color: var(--bites-yellow);
+  padding-block: clamp(60px, 10vw, 140px);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Background Word ─────────────────────────────────────── */
+.featured__bg-word {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 22rem);
+  text-transform: uppercase;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(6, 77, 59, 0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* ── Content ─────────────────────────────────────────────── */
+.featured__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 3;
+}
+
+.featured__label {
+  font-family: var(--font-hand);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bites-green);
+  opacity: 0.7;
+}
+
+.featured__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: var(--ls-section);
+  color: var(--bites-green);
+}
+
+.featured__desc {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--bites-green);
+  max-width: 42ch;
+}
+
+.featured__cta {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: var(--bites-green);
+  color: var(--bites-yellow);
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+  align-self: flex-start;
+  transition: transform var(--dur-ui) var(--ease-out),
+              background-color var(--dur-ui) var(--ease-out);
+}
+
+.featured__cta:hover {
+  transform: translateY(-2px);
+  background-color: #053a2d;
+}
+
+/* ── Product Image ───────────────────────────────────────── */
+.featured__image-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.featured__image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  /* Allow overflow above section */
+  margin-top: -8vw;
+  margin-bottom: -8vw;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+  will-change: transform;
+  mix-blend-mode: multiply;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .featured__inner {
+    grid-template-columns: 1fr;
+    padding-inline: var(--space-page-x-mobile);
+    text-align: center;
+  }
+
+  .featured__content {
+    align-items: center;
+  }
+
+  .featured__image {
+    max-width: 300px;
+    margin-top: -4vw;
+    margin-bottom: -4vw;
+  }
+
+  .featured__bg-word {
+    font-size: clamp(5rem, 18vw, 12rem);
+  }
+}
+
+
+/* ============================================================
+   BITES — Diagonal Pattern Field
+   Oversized diagonal typographic rows with scroll drift
+   ============================================================ */
+
+.pattern-field {
+  background-color: var(--bites-ivory);
+  padding-block: clamp(60px, 10vw, 120px);
+  overflow: hidden;
+  position: relative;
+}
+
+.pattern-field__rows {
+  transform: rotate(-5deg);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1.5vw, 16px);
+  /* Extra width to ensure no gaps at edges */
+  margin-inline: -10vw;
+}
+
+.pattern-field__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 32px);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.pattern-field__row--solid {
+  font-family: var(--font-serif);
+  font-size: var(--text-pattern);
+  color: var(--bites-green);
+  line-height: 0.88;
+  font-style: italic;
+}
+
+.pattern-field__row--outline {
+  font-family: var(--font-serif);
+  font-size: var(--text-pattern);
+  -webkit-text-stroke: 2px var(--bites-green);
+  color: transparent;
+  line-height: 0.88;
+  font-style: italic;
+}
+
+.pattern-field__icon {
+  display: inline-block;
+  width: clamp(28px, 4vw, 48px);
+  height: clamp(28px, 4vw, 48px);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.pattern-field__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pattern-field__word {
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   BITES — Marquee Callout Banner
+   Yellow strip with large text and overlapping product
+   ============================================================ */
+
+.callout-banner {
+  background-color: var(--bites-yellow);
+  position: relative;
+  overflow: visible;
+  padding-block: clamp(48px, 7vw, 90px);
+  z-index: 3;
+}
+
+.callout-banner__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.callout-banner__text {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: var(--ls-section);
+  color: var(--bites-green);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.callout-banner__product {
+  position: absolute;
+  right: -2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(160px, 22vw, 340px);
+  height: auto;
+  z-index: 3;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .callout-banner__inner {
+    padding-inline: var(--space-page-x-mobile);
+  }
+
+  .callout-banner__product {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 50%;
+    margin-top: 24px;
+    margin-inline: auto;
+  }
+
+  .callout-banner__inner {
+    flex-direction: column;
+  }
+}

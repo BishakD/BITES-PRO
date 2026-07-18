@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" fill="none">
+  <!-- Bites Logo - Transparent Background SVG -->
+  <!-- Matches the supplied logo's heavy, rounded geometric display style -->
+  <defs>
+    <style>
+      .logo-fill { fill: #202020; }
+    </style>
+  </defs>
+  
+  <!-- Letter B -->
+  <path class="logo-fill" d="M10 140V20h52c12 0 22 3 29 9s10 14 10 24c0 8-2 14-7 19s-11 8-19 9v1c10 1 18 5 24 11s9 14 9 24c0 11-4 20-12 27s-19 10-33 10H10zm36-72h14c6 0 10-1.5 14-4.5s5-7 5-12.5c0-5-1.5-9-5-12s-8-4.5-14-4.5H46v33.5zm0 45h17c7 0 12-2 16-5.5s6-8.5 6-14.5-2-11-6-14.5-9-5.5-16-5.5H46V113z"/>
+  
+  <!-- Letter i with round dot -->
+  <circle class="logo-fill" cx="155" cy="28" r="16"/>
+  <rect class="logo-fill" x="139" y="56" width="32" height="84" rx="2"/>
+  
+  <!-- Letter t -->
+  <path class="logo-fill" d="M186 56h14V28h32v28h20v26h-20v36c0 5 1 9 3 11s5 4 10 4c3 0 6-.5 9-1.5v26c-6 2-12 3-19 3-13 0-22-3.5-28-10.5s-9-17-9-29.5V82h-12V56z"/>
+  
+  <!-- Letter e -->
+  <path class="logo-fill" d="M280 142c-15 0-27-5-36-14s-14-21-14-36c0-15 4.5-27 13.5-36S267 42 281 42c14 0 25 4.5 33 13.5S328 77 328 92v8H262c1 7 4 12 9 16s11 6 18 6c5 0 10-1 14-3s7-5 9-9l25 10c-4 8-10 14-18 19s-18 7-29 7h-10zm16-64c-1-6-4-11-8-15s-10-6-17-6c-6 0-12 2-16 6s-7 9-8 15h49z"/>
+  
+  <!-- Letter s -->
+  <path class="logo-fill" d="M340 120l22-14c3 5 7 9 12 11s10 4 16 4c5 0 9-1 12-3s4.5-5 4.5-8c0-4-2-7-5.5-9s-10-4-18-7c-11-3-19-8-25-14s-9-13-9-22c0-10 4-18 12-25s18-10 30-10c10 0 19 2 26 7s12 11 16 19l-22 13c-2-4-5-8-9-10s-8-4-13-4c-4 0-8 1-11 3s-4 5-4 8c0 4 1.5 6.5 5 8.5s9 4 17 6c11 4 20 9 26 15s9 13 9 22c0 11-4 19-13 26s-19 10-32 10c-11 0-21-3-29-8s-14-12-18-21z"/>
+  
+  <!-- Four-pointed star accent -->
+  <path class="logo-fill" d="M490 130l8-20 8 20 20 8-20 8-8 20-8-20-20-8z"/>
+</svg>

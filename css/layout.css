@@ -1,0 +1,130 @@
+/* ============================================================
+   BITES — Layout System
+   12-column grid, section spacing, content containers
+   ============================================================ */
+
+/* ── Page Container ──────────────────────────────────────── */
+.page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Content Container ───────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
+}
+
+.container--narrow {
+  max-width: 960px;
+}
+
+.container--wide {
+  max-width: 1800px;
+}
+
+/* ── Grid ────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-gap);
+}
+
+.grid--lg-gap {
+  gap: var(--space-gap-lg);
+}
+
+/* ── Section ─────────────────────────────────────────────── */
+.section {
+  padding-block: var(--space-section-y);
+  position: relative;
+}
+
+.section--flush {
+  padding-block: 0;
+}
+
+.section--ivory {
+  background-color: var(--bites-ivory);
+}
+
+.section--cream {
+  background-color: var(--bites-cream);
+}
+
+.section--green {
+  background-color: var(--bites-green);
+  color: var(--bites-ivory);
+}
+
+.section--yellow {
+  background-color: var(--bites-yellow);
+  color: var(--bites-green);
+}
+
+.section--charcoal {
+  background-color: var(--bites-charcoal);
+  color: var(--bites-ivory);
+}
+
+.section--full-bleed {
+  padding-inline: 0;
+}
+
+/* ── Flex Utilities ──────────────────────────────────────── */
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--gap {
+  gap: var(--space-gap);
+}
+
+/* ── Text Measure ────────────────────────────────────────── */
+.measure {
+  max-width: var(--max-text);
+}
+
+/* ── Reveal Wrapper ──────────────────────────────────────── */
+.reveal-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-inner {
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* ── Edge-to-edge ────────────────────────────────────────── */
+.edge-to-edge {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-page-x-mobile);
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

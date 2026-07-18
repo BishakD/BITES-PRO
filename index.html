@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bites — Fresh Bakery, Delivered</title>
+  <meta name="description" content="Bites is a contemporary bakery crafting croissants, pastries, burgers, pizzas, cakes, and more. Order online or visit us today.">
+  <meta name="theme-color" content="#F3F0E3">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bites — Fresh Bakery, Delivered">
+  <meta property="og:description" content="Croissants, burgers, cakes and everything in between. Baked fresh, delivered fast.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero/hero-poster.jpg">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/logo/bites-logo.svg" as="image" type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Patrick+Hand+SC&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/manifesto.css">
+  <link rel="stylesheet" href="css/story.css">
+  <link rel="stylesheet" href="css/product-rail.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/featured.css">
+  <link rel="stylesheet" href="css/locations.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Loader Styles (inline for speed) -->
+  <style>
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background-color: var(--bites-charcoal, #202020);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transition: transform 0.7s cubic-bezier(.22,1,.36,1);
+    }
+    .loader.is-exiting {
+      transform: translateY(-100%);
+    }
+    .loader__logo {
+      width: 120px;
+      height: auto;
+      transform: scale(0.96);
+      transition: transform 1.2s cubic-bezier(.16,1,.3,1);
+    }
+    .loader__progress {
+      width: 80px;
+      height: 2px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader__progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--bites-yellow, #FFC329);
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(.22,1,.36,1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════════════════
+       LOADER
+       ═══════════════════════════════════════════════════════ -->
+  <div class="loader" aria-hidden="true">
+    <img class="loader__logo" src="assets/logo/bites-logo.svg" alt="" width="120" height="40">
+    <div class="loader__progress">
+      <div class="loader__progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER / NAVBAR
+       ═══════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header__inner">
+      <!-- Logo Badge -->
+      <a href="/" class="header__logo" aria-label="Bites — Home">
+        <img src="assets/logo/bites-logo-custom.jpg" alt="Bites">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="#menu-section" class="header__nav-link">Menu</a>
+        <a href="#story-section" class="header__nav-link">Our Story</a>
+        <a href="#locations-section" class="header__nav-link">Locations</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header__actions">
+        <a href="#contact-section" class="header__order-btn">Order Online</a>
+
+        <!-- Hamburger -->
+        <button class="header__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="#menu-section" class="mobile-menu__link">Menu</a>
+    <a href="#story-section" class="mobile-menu__link">Our Story</a>
+    <a href="#locations-section" class="mobile-menu__link">Locations</a>
+    <a href="#contact-section" class="mobile-menu__link">Order Online</a>
+    <div class="mobile-menu__footer">
+      <a href="#" class="mobile-menu__social">Instagram</a>
+      <a href="#" class="mobile-menu__social">Twitter</a>
+      <a href="#" class="mobile-menu__social">Facebook</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════════════════
+         1. CINEMATIC HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Welcome to Bites">
+      <div class="hero__media">
+        <video 
+          class="hero__video" 
+          autoplay 
+          muted 
+          loop 
+          preload="auto"
+          playsinline
+          poster="assets/hero/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="https://videos.pexels.com/video-files/4253320/4253320-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        </video>
+        <img class="hero__poster" src="assets/hero/hero-poster.jpg" alt="" width="1920" height="1080">
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">Your favorites, delivered fresh.</p>
+        
+        <h1 class="hero__headline">
+          <span class="hero__line"><span class="hero__line-inner">BIG FLAVOUR</span></span>
+          <span class="hero__line"><span class="hero__line-inner">FRESHLY MADE</span></span>
+        </h1>
+
+        <p class="hero__subtitle">Croissants, burgers, cakes and everything in between — crafted daily and delivered to your door.</p>
+
+        <div class="hero__cta-group">
+          <a href="#menu-section" class="hero__cta-primary">Order Now</a>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         2. BRAND MANIFESTO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="manifesto section" aria-label="Brand statement">
+      <div class="manifesto__inner">
+        <p class="manifesto__headline">
+          <span class="manifesto__line"><span class="manifesto__line-inner">We bake the</span></span>
+          <span class="manifesto__line"><span class="manifesto__line-inner">things you think</span></span>
+          <span class="manifesto__line"><span class="manifesto__line-inner">about all day.</span></span>
+        </p>
+
+        <div class="manifesto__side">
+          <div class="manifesto__seal" aria-hidden="true">
+            <svg class="manifesto__seal-text" viewBox="0 0 100 100" width="100%" height="100%">
+              <defs>
+                <path id="sealCircle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
+              </defs>
+              <text font-size="9.5" font-family="'Space Grotesk', sans-serif" fill="#064D3B" letter-spacing="3">
+                <textPath href="#sealCircle">MIXED • ROLLED • BAKED • DAILY •</textPath>
+              </text>
+            </svg>
+          </div>
+          <p class="manifesto__body">From slow-fermented sourdough to double-stacked burgers, every bite is built from scratch with honest ingredients.</p>
+          <a href="#menu-section" class="manifesto__cta">Explore the Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         3. INGREDIENT STORY SPLIT
+         ═══════════════════════════════════════════════════════ -->
+    <section id="story-section" class="story section" aria-label="Our ingredient story">
+      <div class="story__inner">
+        <div class="story__image-wrap">
+          <div class="story__image-mask"></div>
+          <img 
+            class="story__image" 
+            src="assets/hero/hero-poster.jpg" 
+            alt="Close-up of fresh pastries being prepared in our kitchen"
+            width="800" 
+            height="1000"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="story__content">
+          <span class="story__label text-hand">Our Daily Ritual</span>
+          <h2 class="story__headline">Baked Before<br>You Wake</h2>
+          <p class="story__body">Our bakers start at 3 AM, shaping dough by hand and filling the ovens before the city wakes up. Every croissant has 27 layers. Every loaf gets 72 hours to ferment. We don't cut corners — we fold them.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         4. HORIZONTAL PRODUCT RAIL
+         ═══════════════════════════════════════════════════════ -->
+    <section class="product-rail section" aria-label="Our fresh products">
+      <div class="product-rail__header">
+        <p class="product-rail__title text-hand">Handmade with love</p>
+        <h2 class="product-rail__subtitle">Our Fresh Bites</h2>
+        <div class="product-rail__prompt">
+          <span class="product-rail__prompt-text-desktop">Drag to explore</span>
+          <span class="product-rail__prompt-text-mobile">Swipe to explore</span>
+          <span class="product-rail__prompt-arrow"></span>
+        </div>
+      </div>
+
+      <div class="product-rail__viewport" aria-label="Product carousel — drag to browse or use arrow keys">
+        <!-- Nav Arrows -->
+        <button class="product-rail__nav product-rail__nav--prev" aria-label="Previous product">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="product-rail__nav product-rail__nav--next" aria-label="Next product">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+
+        <!-- Track — populated by JS from data -->
+        <div class="product-rail__track" role="list" aria-label="Products">
+          <!-- Products rendered by product-rail.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         5. FULL MENU OVERVIEW
+         ═══════════════════════════════════════════════════════ -->
+    <section id="menu-section" class="menu-overview section" aria-label="Complete menu">
+      <div class="menu-overview__inner">
+        <div class="menu-overview__header">
+          <!-- Small bakery icon -->
+          <svg class="menu-overview__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 28h24v4H8zm2-6c0-5 4-9 10-9s10 4 10 9H10zm8-12v3m-6-1l1 3m12-3l-1 3" stroke="#064D3B" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h2 class="menu-overview__title">The Bites Menu</h2>
+          <p class="menu-overview__subtitle">Sweet, savory, baked and stacked.</p>
+        </div>
+
+        <!-- Category Tabs — rendered by JS -->
+        <div class="menu-overview__tabs" role="tablist" aria-label="Menu categories"></div>
+
+        <!-- Menu Grid — rendered by JS -->
+        <div class="menu-overview__grid" role="list" aria-label="Menu items"></div>
+
+        <div class="menu-overview__footer">
+          <a href="#order" class="menu-overview__order-btn">
+            Order from the Menu
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         6. FEATURED PRODUCT HIGHLIGHT
+         ═══════════════════════════════════════════════════════ -->
+    <section class="featured" aria-label="Featured product">
+      <div class="featured__bg">
+        <div class="featured__bg-word" aria-hidden="true">CROISSANT</div>
+        <div class="featured__inner">
+          <div class="featured__content">
+            <span class="featured__label text-hand">Daily Signature</span>
+            <h2 class="featured__title">The Perfect<br>Croissant</h2>
+            <p class="featured__desc">27 layers of hand-laminated butter dough, slow-proved overnight and baked to a deep golden crackle every morning.</p>
+          </div>
+          <div class="featured__image-wrap">
+            <img 
+              class="featured__image" 
+              src="assets/products/croissant.png" 
+              alt="Close-up of a golden butter croissant"
+              width="500" 
+              height="500"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         7. DIAGONAL PATTERN FIELD
+         ═══════════════════════════════════════════════════════ -->
+    <section class="pattern-field" aria-hidden="true">
+      <div class="pattern-field__rows">
+        <!-- Row 1: Solid -->
+        <div class="pattern-field__row pattern-field__row--solid">
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 6c-5 0-10 3-12 8 2 8 12 20 12 20s10-12 12-20c-2-5-7-8-12-8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 6c-5 0-10 3-12 8 2 8 12 20 12 20s10-12 12-20c-2-5-7-8-12-8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+        </div>
+        
+        <!-- Row 2: Outline -->
+        <div class="pattern-field__row pattern-field__row--outline">
+          <span class="pattern-field__word">BAKED • STACKED • SHARED</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" stroke="#064D3B" stroke-width="1.5" fill="none"/><path d="M20 10v-4M20 34v-4M10 20H6M34 20h-4" stroke="#064D3B" stroke-width="1.5"/></svg>
+          <span class="pattern-field__word">BAKED • STACKED • SHARED</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" stroke="#064D3B" stroke-width="1.5" fill="none"/><path d="M20 10v-4M20 34v-4M10 20H6M34 20h-4" stroke="#064D3B" stroke-width="1.5"/></svg>
+          <span class="pattern-field__word">BAKED • STACKED • SHARED</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" stroke="#064D3B" stroke-width="1.5" fill="none"/><path d="M20 10v-4M20 34v-4M10 20H6M34 20h-4" stroke="#064D3B" stroke-width="1.5"/></svg>
+          <span class="pattern-field__word">BAKED • STACKED • SHARED</span>
+        </div>
+
+        <!-- Row 3: Solid -->
+        <div class="pattern-field__row pattern-field__row--solid">
+          <span class="pattern-field__word">ONE MORE BITE</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#064D3B" stroke-width="1.5" fill="none"/><rect x="6" y="28" width="28" height="4" rx="2" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">ONE MORE BITE</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#064D3B" stroke-width="1.5" fill="none"/><rect x="6" y="28" width="28" height="4" rx="2" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">ONE MORE BITE</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#064D3B" stroke-width="1.5" fill="none"/><rect x="6" y="28" width="28" height="4" rx="2" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">ONE MORE BITE</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M8 28c0-7 5-12 12-12s12 5 12 12" stroke="#064D3B" stroke-width="1.5" fill="none"/><rect x="6" y="28" width="28" height="4" rx="2" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">ONE MORE BITE</span>
+        </div>
+
+        <!-- Row 4: Outline -->
+        <div class="pattern-field__row pattern-field__row--outline">
+          <span class="pattern-field__word">GOOD FOOD GOOD MOOD</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">GOOD FOOD GOOD MOOD</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">GOOD FOOD GOOD MOOD</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">GOOD FOOD GOOD MOOD</span>
+        </div>
+
+        <!-- Row 5: Solid -->
+        <div class="pattern-field__row pattern-field__row--solid">
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 6c-5 0-10 3-12 8 2 8 12 20 12 20s10-12 12-20c-2-5-7-8-12-8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 8l3 8h8l-7 5 3 8-7-5-7 5 3-8-7-5h8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+          <svg class="pattern-field__icon" viewBox="0 0 40 40"><path d="M20 6c-5 0-10 3-12 8 2 8 12 20 12 20s10-12 12-20c-2-5-7-8-12-8z" stroke="#064D3B" stroke-width="1.5" fill="none"/></svg>
+          <span class="pattern-field__word">BITES ALL DAY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         8. CALLOUT BANNER
+         ═══════════════════════════════════════════════════════ -->
+    <section class="callout-banner" aria-label="Special offer">
+      <div class="callout-banner__inner">
+        <h2 class="callout-banner__text">Fresh from oven<br>to your table</h2>
+        <img 
+          class="callout-banner__product" 
+          src="assets/products/sourdough.png" 
+          alt="Fresh sourdough loaf" 
+          width="340" 
+          height="340"
+          loading="lazy"
+          aria-hidden="true"
+        >
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         9. LOCATIONS
+         ═══════════════════════════════════════════════════════ -->
+    <section id="locations-section" class="locations section" aria-label="Our bakery locations">
+      <div class="locations__inner">
+        <div>
+          <div class="locations__header">
+            <p class="locations__label text-hand">Come say hello</p>
+            <h2 class="locations__title">Find<br>Your Bites</h2>
+          </div>
+
+          <div class="locations__list" role="list">
+            <div class="locations__item is-active" data-location-id="loc-downtown" role="listitem" tabindex="0">
+              <h3 class="locations__item-name">Downtown Studio</h3>
+              <p class="locations__item-details">DNV Rd, Power House Quater Complex, Dharmanagar, Tripura 799250</p>
+              <p class="locations__item-details locations__item-hours">Mon–Sat 7 AM – 9 PM  •  Sun 8 AM – 6 PM</p>
+              <a href="https://maps.google.com/?q=DNV+Rd,+Power+House+Quater+Complex,+Dharmanagar,+Tripura+799250" target="_blank" class="locations__item-link">
+                Get directions
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="locations__preview" style="background-color: transparent;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14545.918968037346!2d92.15837!3d24.37255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374d2320b991104f%3A0xc3f585f67ed50b!2sDharmanagar%2C%20Tripura%20799250!5e0!3m2!1sen!2sin!4v1684405714818!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         10. CONTACT SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section id="contact-section" class="contact section" aria-label="Contact us">
+      <div class="contact__inner">
+        <p class="contact__eyebrow">GET IN TOUCH</p>
+        <h2 class="contact__headline">Visit Us or Say Hello</h2>
+        <p class="contact__subtitle">Drop by our shop, give us a call, or send a quick message — we'd love to hear from you.</p>
+        
+        <div class="contact__grid">
+          <!-- Left: Details Cards -->
+          <div class="contact__details">
+            
+            <div class="contact__card">
+              <div class="contact__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact__card-info">
+                <h4 class="contact__card-title">ADDRESS</h4>
+                <p class="contact__card-desc">DNV Rd, Power House Quater Complex,<br>Dharmanagar, Tripura 799250</p>
+              </div>
+            </div>
+
+            <div class="contact__card">
+              <div class="contact__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact__card-info">
+                <h4 class="contact__card-title">PHONE</h4>
+                <p class="contact__card-desc"><strong>+91 98765 43210</strong></p>
+              </div>
+            </div>
+
+            <div class="contact__card">
+              <div class="contact__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="contact__card-info">
+                <h4 class="contact__card-title">OPENING HOURS</h4>
+                <p class="contact__card-desc">Mon – Sat: 9:00 AM – 10:00 PM<br>Sunday: 10:00 AM – 9:00 PM</p>
+              </div>
+            </div>
+
+            <div class="contact__card">
+              <div class="contact__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact__card-info">
+                <h4 class="contact__card-title">EMAIL</h4>
+                <p class="contact__card-desc"><strong>hello@bites.in</strong></p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Contact Form -->
+          <form class="contact__form">
+            <div class="contact__form-group">
+              <label for="contact-name" class="contact__label">YOUR NAME</label>
+              <input id="contact-name" type="text" class="contact__input" placeholder="John Doe" required>
+            </div>
+            
+            <div class="contact__form-group">
+              <label for="contact-phone" class="contact__label">PHONE NUMBER</label>
+              <input id="contact-phone" type="tel" class="contact__input" placeholder="+91 98765 43210" required>
+            </div>
+            
+            <div class="contact__form-group">
+              <label for="contact-msg" class="contact__label">MESSAGE</label>
+              <textarea id="contact-msg" class="contact__textarea" placeholder="Tell us what you'd like..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="contact__submit">SEND MESSAGE</button>
+            <div class="contact__feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       11. RECRUITMENT & FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <section class="recruitment" aria-label="Join our team">
+    <div class="recruitment__inner">
+      <div class="recruitment__content">
+        <h2 class="recruitment__headline">Come Back<br>Again</h2>
+        <p class="recruitment__body">We can't wait to see you again. Drop by for another fresh bite or order online for delivery straight to your door.</p>
+        <a href="#menu-section" class="recruitment__cta">Order Again</a>
+      </div>
+      <div class="recruitment__character">
+        <!-- Illustrated smiling croissant character — SVG inline -->
+        <svg class="recruitment__character-img" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Croissant body -->
+          <path d="M60 250 C60 180 100 100 160 80 C220 100 260 180 260 250 C260 300 220 340 160 340 C100 340 60 300 60 250Z" fill="#FFC329" stroke="#064D3B" stroke-width="4"/>
+          <!-- Layers -->
+          <path d="M90 200 C120 185 200 185 230 200" stroke="#064D3B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M80 230 C115 215 205 215 240 230" stroke="#064D3B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M75 260 C110 245 210 245 245 260" stroke="#064D3B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Left eye -->
+          <g class="recruitment__character-eyes">
+            <ellipse cx="130" cy="165" rx="12" ry="14" fill="#064D3B"/>
+            <ellipse cx="133" cy="161" rx="4" ry="5" fill="#FFFDF6"/>
+          </g>
+          <!-- Right eye -->
+          <g class="recruitment__character-eyes">
+            <ellipse cx="190" cy="165" rx="12" ry="14" fill="#064D3B"/>
+            <ellipse cx="193" cy="161" rx="4" ry="5" fill="#FFFDF6"/>
+          </g>
+          <!-- Smile -->
+          <path d="M135 195 C145 215 175 215 185 195" stroke="#064D3B" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Cheeks -->
+          <ellipse cx="115" cy="190" rx="10" ry="7" fill="#FFE3B8" opacity="0.6"/>
+          <ellipse cx="205" cy="190" rx="10" ry="7" fill="#FFE3B8" opacity="0.6"/>
+          <!-- Tiny legs -->
+          <rect x="130" y="335" width="16" height="30" rx="8" fill="#FFC329" stroke="#064D3B" stroke-width="3"/>
+          <rect x="174" y="335" width="16" height="30" rx="8" fill="#FFC329" stroke="#064D3B" stroke-width="3"/>
+          <!-- Shoes -->
+          <ellipse cx="138" cy="370" rx="14" ry="8" fill="#064D3B"/>
+          <ellipse cx="182" cy="370" rx="14" ry="8" fill="#064D3B"/>
+          <!-- Left arm waving -->
+          <path d="M65 220 C40 200 30 170 45 150" stroke="#064D3B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="43" cy="148" r="8" fill="#FFC329" stroke="#064D3B" stroke-width="3"/>
+          <!-- Right arm -->
+          <path d="M255 220 C275 230 280 250 270 265" stroke="#064D3B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="268" cy="268" r="8" fill="#FFC329" stroke="#064D3B" stroke-width="3"/>
+          <!-- Sparkle near wave -->
+          <path d="M30 130 l3-8 3 8 8 3-8 3-3 8-3-8-8-3z" fill="#064D3B" opacity="0.5"/>
+          <path d="M280 140 l2-6 2 6 6 2-6 2-2 6-2-6-6-2z" fill="#064D3B" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <a href="/" class="footer__logo" aria-label="Bites — Home">
+          <img src="assets/logo/bites-logo-custom.jpg" alt="Bites">
+        </a>
+
+        <div>
+          <h3 class="footer__col-title">Menu</h3>
+          <a href="#" class="footer__col-link">Pastries</a>
+          <a href="#" class="footer__col-link">Burgers</a>
+          <a href="#" class="footer__col-link">Pizza</a>
+          <a href="#" class="footer__col-link">Cakes</a>
+          <a href="#" class="footer__col-link">Drinks</a>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <a href="#" class="footer__col-link">Our Story</a>
+          <a href="#" class="footer__col-link">Locations</a>
+          <a href="#" class="footer__col-link">Careers</a>
+          <a href="#" class="footer__col-link">Press</a>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Support</h3>
+          <a href="#" class="footer__col-link">Contact Us</a>
+          <a href="#" class="footer__col-link">FAQs</a>
+          <a href="#" class="footer__col-link">Delivery Info</a>
+          <a href="#" class="footer__col-link">Allergens</a>
+        </div>
+
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4h-2L12.5 10 8 4H4z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Bites. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms of Service</a>
+          <a href="#" class="footer__legal-link">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCRIPTS
+       ═══════════════════════════════════════════════════════ -->
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  
+  <!-- Native Scroll used for stability -->
+
+  <!-- App Scripts -->
+  <script src="js/data.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/product-rail.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

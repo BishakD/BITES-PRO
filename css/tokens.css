@@ -1,0 +1,102 @@
+/* ============================================================
+   BITES — Design Tokens
+   All editable CSS custom properties in one place.
+   ============================================================ */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────── */
+  --bites-ivory:    #F3F0E3;
+  --bites-green:    #064D3B;
+  --bites-yellow:   #FFC329;
+  --bites-charcoal: #202020;
+  --bites-cream:    #FFE3B8;
+  --bites-white:    #FFFDF6;
+  --bites-brown:    #8A4F28;
+
+  /* Functional aliases */
+  --color-bg:       var(--bites-ivory);
+  --color-text:     var(--bites-green);
+  --color-accent:   var(--bites-yellow);
+  --color-dark:     var(--bites-charcoal);
+  --color-surface:  var(--bites-white);
+  --color-warm:     var(--bites-cream);
+
+  /* ── Typography — Families ─────────────────────────────── */
+  --font-display:   'Archivo Black', 'Arial Black', sans-serif;
+  --font-body:      'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  --font-hand:      'Patrick Hand SC', 'Comic Sans MS', cursive;
+  --font-serif:     'DM Serif Display', 'Georgia', serif;
+
+  /* ── Typography — Sizes (fluid clamp) ──────────────────── */
+  --text-hero:      clamp(4rem, 9vw, 8rem);
+  --text-section:   clamp(3.4rem, 9vw, 8.5rem);
+  --text-product:   clamp(1.7rem, 3vw, 3.2rem);
+  --text-body:      clamp(1rem, 1.25vw, 1.25rem);
+  --text-small:     clamp(0.72rem, 0.85vw, 0.9rem);
+  --text-nav:       clamp(0.72rem, 0.8vw, 0.9rem);
+  --text-eyebrow:   clamp(0.7rem, 0.9vw, 0.85rem);
+  --text-menu-name: clamp(1rem, 1.1vw, 1.15rem);
+  --text-menu-desc: clamp(0.8rem, 0.9vw, 0.9rem);
+  --text-menu-price:clamp(0.95rem, 1vw, 1.1rem);
+  --text-pattern:   clamp(4rem, 8vw, 8.5rem);
+
+  /* ── Typography — Line Heights ─────────────────────────── */
+  --lh-hero:        0.86;
+  --lh-section:     0.88;
+  --lh-product:     0.95;
+  --lh-body:        1.52;
+  --lh-tight:       1.1;
+
+  /* ── Typography — Tracking ─────────────────────────────── */
+  --ls-hero:        -0.035em;
+  --ls-section:     -0.025em;
+  --ls-nav:         0.09em;
+  --ls-eyebrow:     0.14em;
+  --ls-body:        0;
+
+  /* ── Spacing ───────────────────────────────────────────── */
+  --space-page-x:   clamp(20px, 4vw, 72px);
+  --space-page-x-mobile: 20px;
+  --space-section-y:clamp(80px, 12vw, 180px);
+  --space-gap:      clamp(16px, 2vw, 32px);
+  --space-gap-lg:   clamp(32px, 4vw, 64px);
+  --max-content:    1520px;
+  --max-text:       62ch;
+
+  /* ── Header ────────────────────────────────────────────── */
+  --header-h:       90px;
+  --header-h-mobile:68px;
+  --header-h-shrunk:78px;
+  --header-h-shrunk-mobile: 60px;
+  --logo-badge-h:   46px;
+  --logo-badge-h-mobile: 38px;
+
+  /* ── Animation Timings ─────────────────────────────────── */
+  --ease-out:       cubic-bezier(.22, 1, .36, 1);
+  --ease-expressive:cubic-bezier(.16, 1, .3, 1);
+  --ease-smooth:    cubic-bezier(.25, .1, .25, 1);
+  --ease-bounce:    cubic-bezier(.34, 1.56, .64, 1);
+
+  --dur-fast:       200ms;
+  --dur-ui:         280ms;
+  --dur-medium:     420ms;
+  --dur-reveal:     750ms;
+  --dur-cinematic:  1050ms;
+  --dur-slow:       1300ms;
+
+  /* ── Z-Index Scale ─────────────────────────────────────── */
+  --z-behind:       -1;
+  --z-base:         1;
+  --z-overlay:      10;
+  --z-header:       100;
+  --z-mobile-menu:  90;
+  --z-loader:       200;
+  --z-cursor:       300;
+
+  /* ── Borders & Radii ───────────────────────────────────── */
+  --radius-pill:    100px;
+  --radius-sm:      6px;
+  --radius-md:      12px;
+  --radius-lg:      20px;
+  --border-thin:    1.5px solid var(--bites-green);
+}
