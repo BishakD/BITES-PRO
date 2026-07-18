@@ -32,29 +32,16 @@
   padding-inline: var(--space-page-x);
 }
 
-/* ── Logo Badge ──────────────────────────────────────────── */
 .header__logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-@media (min-width: 768px) {
-  .header__logo {
-    position: static;
-    transform: none;
-  }
-}
-
-.header__logo img,
-.header__logo svg {
+.header__logo img {
   height: clamp(48px, 8vw, 75px);
   width: auto;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 /* ── Nav Center (desktop links) ──────────────────────────── */
