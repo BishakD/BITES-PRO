@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Bites</title>
+  <meta name="description" content="Read the story of Bites: our daily 3 AM baking rituals, the 27 layers of a croissant, and 72-hour slow fermentation sourdough.">
+  <meta name="theme-color" content="#F3F0E3">
+  <link rel="icon" type="image/png" href="assets/logo/bites-logo-official.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Patrick+Hand+SC&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/story.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Loader Styles (inline for speed) -->
+  <style>
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background-color: var(--bites-charcoal, #202020);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transition: transform 0.7s cubic-bezier(.22,1,.36,1);
+    }
+    .loader.is-exiting {
+      transform: translateY(-100%);
+    }
+    .loader__logo {
+      width: 120px;
+      height: auto;
+      transform: scale(0.96);
+      transition: transform 1.2s cubic-bezier(.16,1,.3,1);
+    }
+    .loader__progress {
+      width: 80px;
+      height: 2px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader__progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--bites-yellow, #FFC329);
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(.22,1,.36,1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- LOADER -->
+  <div class="loader" aria-hidden="true">
+    <img class="loader__logo" src="assets/logo/bites-logo.svg" alt="" width="120" height="40">
+    <div class="loader__progress">
+      <div class="loader__progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header" role="banner">
+    <div class="header__inner">
+      <!-- Logo Badge -->
+      <a href="index.html" class="header__logo" aria-label="Bites — Home">
+        <img src="assets/logo/bites-logo-official.png" alt="Bites">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="index.html#menu-section" class="header__nav-link">Menu</a>
+        <a href="story.html" class="header__nav-link is-active">Our Story</a>
+        <a href="index.html#locations-section" class="header__nav-link">Locations</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header__actions">
+        <a href="index.html#contact-section" class="header__order-btn">Order Online</a>
+
+        <!-- Hamburger -->
+        <button class="header__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="index.html#menu-section" class="mobile-menu__link">Menu</a>
+    <a href="story.html" class="mobile-menu__link is-active">Our Story</a>
+    <a href="index.html#locations-section" class="mobile-menu__link">Locations</a>
+    <a href="index.html#contact-section" class="mobile-menu__link">Order Online</a>
+    <div class="mobile-menu__footer">
+      <a href="#" class="mobile-menu__social">Instagram</a>
+      <a href="#" class="mobile-menu__social">Twitter</a>
+      <a href="#" class="mobile-menu__social">Facebook</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- STORY CONTENT -->
+    <section class="story-page" aria-label="Expanded narrative of Bites">
+      <div class="story-page__inner">
+        <!-- Content Side -->
+        <div class="story-page__content">
+          <div class="story-page__header">
+            <span class="story-page__eyebrow">Our Daily Ritual</span>
+            <h1 class="story-page__title">Baked Before<br>You Wake</h1>
+          </div>
+
+          <div class="story-page__body">
+            <div class="story-page__section">
+              <h2 class="story-page__section-title">The 3 AM Ritual</h2>
+              <p class="story-page__paragraph">Our story begins in the quietest hours of the night. While the city sleeps, our kitchens are warm and bright. At 3 AM, our bakers start shaping dough by hand and filling the ovens. It is a slow, rhythmic discipline, driven by a simple promise: to serve only what was crafted today, fresh and honest.</p>
+            </div>
+
+            <div class="story-page__section">
+              <h2 class="story-page__section-title">The 27 Layers of a Croissant</h2>
+              <p class="story-page__paragraph">We believe in patience, precision, and layers. Achieving the perfect shatter-crisp texture of our signature croissant requires hand-lamination of butter dough to build exactly 27 individual layers. It is a painstaking process of chilling, rolling, and folding that cannot be rushed or automated.</p>
+            </div>
+
+            <div class="story-page__section">
+              <h2 class="story-page__section-title">The 72-Hour Fermentation</h2>
+              <p class="story-page__paragraph">Our bread is a study in fermentation. We work with a naturally leavened wild starter, giving every loaf of sourdough up to 72 hours to slowly rise and develop flavor. This extended fermentation breaks down gluten naturally, yielding a tender, easily digestible crumb under a bold, caramelized deck-baked crust.</p>
+            </div>
+
+            <div class="story-page__section">
+              <h2 class="story-page__section-title">Our Promise</h2>
+              <p class="story-page__paragraph">We don't cut corners — we fold them. Doing things the right way is our way. We are proud to serve our community daily with clean ingredients, traditional techniques, and simple passion for great baking.</p>
+            </div>
+          </div>
+
+          <div class="story-page__footer">
+            <a href="index.html" class="story-page__back-btn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Back to Home
+            </a>
+          </div>
+        </div>
+
+        <!-- Image Side -->
+        <div class="story-page__image-panel">
+          <div class="story-page__image-wrap">
+            <img 
+              class="story-page__image" 
+              src="assets/hero/hero-poster.jpg" 
+              alt="Close-up of fresh pastries being prepared in our kitchen"
+              width="800" 
+              height="1000"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <a href="index.html" class="footer__logo" aria-label="Bites — Home">
+          <img src="assets/logo/bites-logo-official.png" alt="Bites">
+        </a>
+
+        <div>
+          <h3 class="footer__col-title">Menu</h3>
+          <a href="product.html?product=butter-croissant" class="footer__col-link">Butter Croissant</a>
+          <a href="product.html?product=smash-burger" class="footer__col-link">Smash Burger</a>
+          <a href="product.html?product=margherita-pizza" class="footer__col-link">Margherita Pizza</a>
+          <a href="product.html?product=celebration-cake" class="footer__col-link">Celebration Cake</a>
+          <a href="product.html?product=flat-white" class="footer__col-link">Flat White</a>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Company</h3>
+          <a href="story.html" class="footer__col-link">Our Story</a>
+          <a href="index.html#locations-section" class="footer__col-link">Locations</a>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Support</h3>
+          <a href="index.html#contact-section" class="footer__col-link">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Bites. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Scripts -->
+  <script src="js/data.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

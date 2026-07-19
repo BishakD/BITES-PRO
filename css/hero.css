@@ -132,18 +132,29 @@
   font-size: clamp(0.8rem, 1vw, 0.95rem);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background-color: var(--bites-yellow);
+  background-image: linear-gradient(to right, var(--bites-sap-green) 50%, var(--bites-yellow) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
   color: var(--bites-charcoal);
   padding: 16px 40px;
   border-radius: var(--radius-pill);
   transition: transform var(--dur-ui) var(--ease-out),
-              background-color var(--dur-ui) var(--ease-out);
+              background-position 300ms var(--ease-out),
+              color 300ms var(--ease-out);
   white-space: nowrap;
 }
 
-.hero__cta-primary:hover {
+.hero__cta-primary:hover,
+.hero__cta-primary:focus-visible {
   transform: translateY(-2px);
-  background-color: #f0b520;
+  background-position: left bottom;
+  color: var(--bites-white);
+  outline: none;
+}
+
+.hero__cta-primary:focus-visible {
+  outline: 2px solid var(--bites-sap-green);
+  outline-offset: 4px;
 }
 
 .hero__cta-secondary {

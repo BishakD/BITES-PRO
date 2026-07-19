@@ -12,6 +12,8 @@
   --bites-cream:    #FFE3B8;
   --bites-white:    #FFFDF6;
   --bites-brown:    #8A4F28;
+  --bites-sap-green:       #2B4434;
+  --bites-sap-green-light: #8FA885;
 
   /* Functional aliases */
   --color-bg:       var(--bites-ivory);

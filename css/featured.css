@@ -33,10 +33,10 @@
 .featured__bg-word {
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: clamp(8rem, 20vw, 22rem);
+  font-size: clamp(8rem, 18vw, 22rem);
   text-transform: uppercase;
   line-height: 0.85;
   color: transparent;
@@ -142,7 +142,7 @@
   }
 
   .featured__bg-word {
-    font-size: clamp(5rem, 18vw, 12rem);
+    font-size: clamp(4rem, 16vw, 10rem);
   }
 }
 
@@ -165,7 +165,7 @@
   flex-direction: column;
   gap: clamp(6px, 1.5vw, 16px);
   /* Extra width to ensure no gaps at edges */
-  margin-inline: -10vw;
+  margin-inline: -30vw;
 }
 
 .pattern-field__row {

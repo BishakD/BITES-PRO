@@ -55,7 +55,7 @@
         }).join('');
 
         return `
-          <div class="menu-overview__row" data-category="${item.category}">
+          <button class="menu-overview__row menu-overview__row--interactive" data-id="${item.id}" data-category="${item.category}" aria-label="View details for ${item.name}" type="button">
             <img 
               class="menu-overview__thumb" 
               src="${item.image}" 
@@ -71,7 +71,7 @@
               ${dietaryTags ? '<div class="menu-overview__dietary">' + dietaryTags + '</div>' : ''}
             </div>
             <span class="menu-overview__price">${item.price}</span>
-          </div>
+          </button>
         `;
       }).join('');
     }
@@ -87,7 +87,7 @@
 
       if (show) {
         row.classList.remove('is-hidden');
-        row.style.transitionDelay = `${i * 30}ms`;
+        row.style.transitionDelay = `${i * 7.5}ms`;
         // Re-trigger reveal
         requestAnimationFrame(() => {
           row.classList.add('is-visible');
@@ -114,7 +114,7 @@
         if (entry.isIntersecting) {
           const row = entry.target;
           const index = Array.from(rows).indexOf(row);
-          row.style.transitionDelay = `${index * 40}ms`;
+          row.style.transitionDelay = `${index * 10}ms`;
           row.classList.add('is-visible');
           observer.unobserve(row);
         }
@@ -144,6 +144,29 @@
     });
 
     sectionObserver.observe(menuSection);
+
+    // Scroll, focus, and highlight if returning from a product page
+    const params = new URLSearchParams(window.location.search);
+    let backFrom = params.get('backFrom');
+
+    // If no query parameter, check if this was a browser back navigation
+    const navEntries = performance.getEntriesByType('navigation');
+    const isBackNav = navEntries.length > 0 && navEntries[0].type === 'back_forward';
+    if (!backFrom && isBackNav) {
+      backFrom = sessionStorage.getItem('lastViewedProduct');
+    }
+
+    if (backFrom) {
+      setTimeout(() => {
+        const card = document.querySelector(`.menu-overview__row[data-id="${backFrom}"]`) || 
+                     document.querySelector(`.product-rail__item[data-id="${backFrom}"]`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('is-highlighted');
+          card.focus();
+        }
+      }, 500);
+    }
   }
 
   if (document.readyState === 'loading') {

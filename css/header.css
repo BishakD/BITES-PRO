@@ -33,15 +33,48 @@
 }
 
 .header__logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
 }
 
 .header__logo img {
   height: clamp(48px, 8vw, 75px);
   width: auto;
   display: block;
+  transition: opacity 300ms ease;
+}
+
+.header__logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, var(--bites-sap-green) 50%, var(--bites-charcoal) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 300ms ease, opacity 300ms ease;
+  mask: url('../assets/logo/bites-logo-official.png') no-repeat center / contain;
+  -webkit-mask: url('../assets/logo/bites-logo-official.png') no-repeat center / contain;
+  opacity: 0;
+}
+
+.header__logo:hover img,
+.header__logo:focus-visible img {
+  opacity: 0;
+}
+
+.header__logo:hover::after,
+.header__logo:focus-visible::after {
+  opacity: 1;
+  background-position: left bottom;
+}
+
+.header__logo:focus-visible {
+  outline: 2px solid var(--bites-sap-green);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
 }
 
 /* ── Nav Center (desktop links) ──────────────────────────── */
@@ -99,19 +132,30 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background-color: var(--bites-yellow);
+  background-image: linear-gradient(to right, var(--bites-sap-green) 50%, var(--bites-yellow) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
   color: var(--bites-charcoal);
   padding: 10px 22px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
   transition: transform var(--dur-ui) var(--ease-out),
-              background-color var(--dur-ui) var(--ease-out);
+              background-position 300ms var(--ease-out),
+              color 300ms var(--ease-out);
   font-weight: 400;
 }
 
-.header__order-btn:hover {
+.header__order-btn:hover,
+.header__order-btn:focus-visible {
   transform: translateY(-2px);
-  background-color: #f0b520;
+  background-position: left bottom;
+  color: var(--bites-white);
+  outline: none;
+}
+
+.header__order-btn:focus-visible {
+  outline: 2px solid var(--bites-sap-green);
+  outline-offset: 3px;
 }
 
 .header__order-btn:active {
@@ -271,6 +315,18 @@
 
   .header__inner {
     padding-inline: var(--space-page-x-mobile);
+    position: relative;
+  }
+
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header__hamburger {
+    position: absolute;
+    left: var(--space-page-x-mobile);
   }
 
   .header__logo-badge {
@@ -284,13 +340,16 @@
   }
 
   .header__order-btn {
+    position: absolute;
+    right: var(--space-page-x-mobile);
     font-size: 0.65rem;
     padding: 8px 16px;
+    display: inline-block;
   }
 }
 
 @media (max-width: 420px) {
   .header__order-btn {
-    display: none;
+    display: inline-block;
   }
 }

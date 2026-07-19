@@ -244,16 +244,20 @@
     const productImg = document.querySelector('.featured__image');
 
     if (bgWord) {
-      gsap.to(bgWord, {
-        x: '-15%',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.featured',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
+      gsap.fromTo(bgWord,
+        { xPercent: -50, yPercent: -50 },
+        {
+          xPercent: -65,
+          yPercent: -50,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.featured',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
         }
-      });
+      );
     }
 
     if (productImg) {

@@ -83,7 +83,7 @@
     if (typeof BITES_PRODUCTS === 'undefined') return;
     
     track.innerHTML = BITES_PRODUCTS.map(product => `
-      <div class="product-rail__item" data-id="${product.id}" data-category="${product.category}">
+      <button class="product-rail__item" type="button" data-id="${product.id}" data-category="${product.category}" aria-label="View details for ${product.name}">
         <div class="product-rail__item-image-wrap">
           <img 
             class="product-rail__item-image" 
@@ -99,8 +99,7 @@
         </div>
         <h3 class="product-rail__item-name">${product.name}</h3>
         <p class="product-rail__item-desc">${product.desc}</p>
-        <span class="product-rail__item-detail">View item</span>
-      </div>
+      </button>
     `).join('');
   }
 

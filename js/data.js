@@ -8,6 +8,7 @@ const BITES_PRODUCTS = [
     id: 'butter-croissant',
     name: 'Butter Croissant',
     desc: 'Flaky, golden, deeply laminated',
+    made: 'Laminated with premium butter, cold-proved for 24 hours, and baked at high heat for a perfect shatter-crisp flake.',
     category: 'pastries',
     price: '₹120',
     image: 'assets/products/croissant.png',
@@ -18,6 +19,7 @@ const BITES_PRODUCTS = [
     id: 'chocolate-pastry',
     name: 'Chocolate Pastry',
     desc: 'Rich ganache, airy sponge',
+    made: 'Light chocolate sponge layered with rich dark chocolate ganache, finished with a glossy cocoa glaze.',
     category: 'pastries',
     price: '₹180',
     image: 'assets/products/cake-slice.png',
@@ -28,6 +30,7 @@ const BITES_PRODUCTS = [
     id: 'cinnamon-roll',
     name: 'Cinnamon Roll',
     desc: 'Warm spice, cream cheese glaze',
+    made: 'Soft brioche dough rolled with sweet cinnamon sugar, baked golden and topped with cream cheese icing.',
     category: 'pastries',
     price: '₹160',
     image: 'assets/products/cinnamon-roll.png',
@@ -38,6 +41,7 @@ const BITES_PRODUCTS = [
     id: 'glazed-doughnut',
     name: 'Glazed Doughnut',
     desc: 'Light, pillowy, perfectly sweet',
+    made: 'Yeast-raised brioche dough, fried to a pillowy golden brown and dipped in our classic warm sugar glaze.',
     category: 'pastries',
     price: '₹90',
     image: 'assets/products/doughnut.png',
@@ -48,6 +52,7 @@ const BITES_PRODUCTS = [
     id: 'smash-burger',
     name: 'Smash Burger',
     desc: 'Double patty, cheddar, house sauce',
+    made: 'Double beef patties smashed sear-crisp on a hot flat-top, topped with melted cheddar on a toasted house bun.',
     category: 'burgers',
     price: '₹280',
     image: 'assets/products/burger.png',
@@ -58,6 +63,7 @@ const BITES_PRODUCTS = [
     id: 'margherita-pizza',
     name: 'Margherita Pizza',
     desc: 'San Marzano, fresh basil, fior di latte',
+    made: 'Slow-fermented Neapolitan dough stretched by hand, topped with San Marzano tomatoes, fresh mozzarella, and baked at 450°C.',
     category: 'pizza',
     price: '₹350',
     image: 'assets/products/pizza.png',
@@ -68,6 +74,7 @@ const BITES_PRODUCTS = [
     id: 'celebration-cake',
     name: 'Celebration Cake',
     desc: 'Three layers, vanilla bean, seasonal fruit',
+    made: 'Three tiers of sponge cake frosted with vanilla bean buttercream and decorated with fresh seasonal fruits.',
     category: 'cakes',
     price: '₹1200',
     image: 'assets/products/cake.png',
@@ -78,6 +85,7 @@ const BITES_PRODUCTS = [
     id: 'cake-slice',
     name: 'Cake Slice',
     desc: 'Red velvet, cream cheese frosting',
+    made: 'Velvety red velvet sponge layered with smooth cream cheese frosting, finished with fine cake crumbs.',
     category: 'cakes',
     price: '₹180',
     image: 'assets/products/cake-slice.png',
@@ -88,6 +96,7 @@ const BITES_PRODUCTS = [
     id: 'chicken-roll',
     name: 'Chicken Roll',
     desc: 'Spiced chicken, pickled onion, herb mayo',
+    made: 'Spiced grilled chicken wrapped in a warm flatbread with pickled red onions and garlic herb mayonnaise.',
     category: 'savory',
     price: '₹220',
     image: 'assets/products/chicken-roll.png',
@@ -98,6 +107,7 @@ const BITES_PRODUCTS = [
     id: 'paneer-roll',
     name: 'Paneer Roll',
     desc: 'Tandoori paneer, mint chutney, slaw',
+    made: 'Tandoori-spiced cottage cheese cubes charred in the oven, wrapped with fresh mint chutney and crunchy cabbage slaw.',
     category: 'savory',
     price: '₹200',
     image: 'assets/products/paneer-roll.png',
@@ -108,6 +118,7 @@ const BITES_PRODUCTS = [
     id: 'sourdough-loaf',
     name: 'Sourdough Loaf',
     desc: '72-hour ferment, wild culture',
+    made: 'Naturally leavened with our wild starter, fermented for 72 hours, and baked in a steam-infused stone deck oven.',
     category: 'pastries',
     price: '₹280',
     image: 'assets/products/sourdough.png',
@@ -118,6 +129,7 @@ const BITES_PRODUCTS = [
     id: 'chocolate-cookie',
     name: 'Choc Chunk Cookie',
     desc: 'Sea salt, brown butter, dark chocolate',
+    made: 'Brown butter dough mixed with generous dark chocolate chunks, baked soft-center and sprinkled with sea salt flakes.',
     category: 'pastries',
     price: '₹100',
     image: 'assets/products/cookie.png',
@@ -128,6 +140,7 @@ const BITES_PRODUCTS = [
     id: 'club-sandwich',
     name: 'Club Sandwich',
     desc: 'Triple-decker, grilled chicken, egg',
+    made: 'Triple decker toasted white bread layered with grilled chicken breast, fried egg, crisp lettuce, tomato, and light mayo.',
     category: 'savory',
     price: '₹260',
     image: 'assets/products/sandwich.png',
@@ -138,10 +151,44 @@ const BITES_PRODUCTS = [
     id: 'savory-puff',
     name: 'Savory Puff',
     desc: 'Puff pastry, spiced potato, peas',
+    made: 'Golden flaky puff pastry filled with a savory mixture of spiced potatoes, green peas, and traditional aromatic herbs.',
     category: 'savory',
     price: '₹80',
     image: 'assets/products/puff.png',
     alt: 'Golden savory puff pastry with filling',
+    dietary: ['veg']
+  },
+  {
+    id: 'veggie-burger',
+    name: 'Veggie Burger',
+    desc: 'Beetroot patty, avocado, chipotle aioli',
+    made: 'House-made beetroot and quinoa patty, pan-seared and layered with fresh avocado, lettuce, and spicy chipotle aioli on a toasted brioche bun.',
+    category: 'burgers',
+    price: '₹250',
+    image: 'assets/products/burger.png',
+    alt: 'Veggie burger with beetroot patty',
+    dietary: ['veg']
+  },
+  {
+    id: 'pepperoni-pizza',
+    name: 'Pepperoni Pizza',
+    desc: 'Spicy pepperoni, mozzarella, chili oil',
+    made: 'Hand-stretched sourdough crust topped with San Marzano tomato sauce, spicy Italian pepperoni, fresh mozzarella, and a drizzle of hot chili oil.',
+    category: 'pizza',
+    price: '₹400',
+    image: 'assets/products/pizza.png',
+    alt: 'Pepperoni pizza with chili oil drizzle',
+    dietary: ['spicy']
+  },
+  {
+    id: 'flat-white',
+    name: 'Flat White',
+    desc: 'Double ristretto, silky steamed milk',
+    made: 'Expertly pulled double shot of espresso ristretto blended with velvety hot micro-foam milk.',
+    category: 'drinks',
+    price: '₹180',
+    image: 'assets/products/cookie.png',
+    alt: 'Flat white coffee with latte art',
     dietary: ['veg']
   }
 ];
@@ -161,62 +208,13 @@ const BITES_MENU = [
   { ...BITES_PRODUCTS[13] },  // Savory Puff
   // Burgers
   { ...BITES_PRODUCTS[4] },   // Smash Burger
-  {
-    id: 'veggie-burger',
-    name: 'Veggie Burger',
-    desc: 'Beetroot patty, avocado, chipotle aioli',
-    category: 'burgers',
-    price: '₹250',
-    image: 'assets/products/burger.png',
-    alt: 'Veggie burger with beetroot patty',
-    dietary: ['veg']
-  },
+  { ...BITES_PRODUCTS[14] },  // Veggie Burger
   // Pizza
   { ...BITES_PRODUCTS[5] },   // Margherita Pizza
-  {
-    id: 'pepperoni-pizza',
-    name: 'Pepperoni Pizza',
-    desc: 'Spicy pepperoni, mozzarella, chili oil',
-    category: 'pizza',
-    price: '₹400',
-    image: 'assets/products/pizza.png',
-    alt: 'Pepperoni pizza with chili oil drizzle',
-    dietary: ['spicy']
-  },
+  { ...BITES_PRODUCTS[15] },  // Pepperoni Pizza
   // Cakes
   { ...BITES_PRODUCTS[6] },   // Celebration Cake
-  { ...BITES_PRODUCTS[7] },   // Cake Slice
-  {
-    id: 'chocolate-truffle',
-    name: 'Chocolate Truffle',
-    desc: 'Dark Belgian chocolate, hazelnut praline',
-    category: 'cakes',
-    price: '₹220',
-    image: 'assets/products/chocolate-pastry.png',
-    alt: 'Rich chocolate truffle cake',
-    dietary: ['veg']
-  },
-  // Drinks
-  {
-    id: 'flat-white',
-    name: 'Flat White',
-    desc: 'Double ristretto, silky steamed milk',
-    category: 'drinks',
-    price: '₹180',
-    image: 'assets/products/cookie.png',
-    alt: 'Flat white coffee with latte art',
-    dietary: ['veg']
-  },
-  {
-    id: 'fresh-juice',
-    name: 'Fresh Orange Juice',
-    desc: 'Cold-pressed, no sugar added',
-    category: 'drinks',
-    price: '₹140',
-    image: 'assets/products/cookie.png',
-    alt: 'Glass of fresh orange juice',
-    dietary: ['veg']
-  }
+  { ...BITES_PRODUCTS[7] }    // Cake Slice
 ];
 
 const BITES_CATEGORIES = [
@@ -225,8 +223,7 @@ const BITES_CATEGORIES = [
   { id: 'savory', label: 'Savory' },
   { id: 'burgers', label: 'Burgers' },
   { id: 'pizza', label: 'Pizza' },
-  { id: 'cakes', label: 'Cakes' },
-  { id: 'drinks', label: 'Drinks' }
+  { id: 'cakes', label: 'Cakes' }
 ];
 
 const BITES_LOCATIONS = [
