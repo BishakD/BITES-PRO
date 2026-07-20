@@ -131,7 +131,6 @@
     lastTime = performance.now();
     velocity = 0;
 
-    viewport.setPointerCapture(e.pointerId);
     viewport.style.cursor = 'grabbing';
   }
 
@@ -151,7 +150,14 @@
     lastTime = now;
 
     if (Math.abs(dx) > DRAG_THRESHOLD) {
-      hasDragged = true;
+      if (!hasDragged) {
+        hasDragged = true;
+        if (viewport.setPointerCapture && e.pointerId !== undefined) {
+          try {
+            viewport.setPointerCapture(e.pointerId);
+          } catch (err) {}
+        }
+      }
       if (!promptDismissed && prompt) {
         prompt.classList.add('is-hidden');
         promptDismissed = true;
@@ -184,6 +190,12 @@
     if (!isDragging) return;
     isDragging = false;
     viewport.style.cursor = 'grab';
+
+    if (viewport.hasPointerCapture && viewport.hasPointerCapture(e.pointerId)) {
+      try {
+        viewport.releasePointerCapture(e.pointerId);
+      } catch (err) {}
+    }
 
     // Click vs drag
     if (!hasDragged) {

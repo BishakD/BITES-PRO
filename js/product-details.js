@@ -27,10 +27,14 @@
 
   // ── Init ───────────────────────────────────────────────────
   function init() {
-    // Bind click events on track
+    // Bind click events on track & rail
     const track = document.querySelector('.product-rail__track');
     if (track) {
       track.addEventListener('click', onTrackClick);
+    }
+    const rail = document.querySelector('.product-rail');
+    if (rail && rail !== track) {
+      rail.addEventListener('click', onTrackClick);
     }
 
     // Bind click events on menu grid
@@ -201,7 +205,46 @@
     modal.classList.add('is-open');
     detailImg.style.opacity = '0'; // Hide real image during fly
 
-    const destRect = detailImg.getBoundingClientRect();
+    let destRect = detailImg.getBoundingClientRect();
+
+    // Fallback if detailImg hasn't laid out yet (width/height 0 or near 0)
+    if (!destRect || destRect.width < 20 || destRect.height < 20) {
+      const imgContainer = modal.querySelector('.product-detail__image-container');
+      if (imgContainer) {
+        const cRect = imgContainer.getBoundingClientRect();
+        const paddingX = window.innerWidth <= 768 ? 48 : 96;
+        const paddingY = window.innerWidth <= 768 ? 48 : 96;
+        const maxW = Math.max(100, (cRect.width - paddingX) * 0.9);
+        const maxH = Math.max(100, (cRect.height - paddingY) * 0.8);
+        
+        let aspect = 1;
+        if (cardImg && cardImg.naturalWidth && cardImg.naturalHeight) {
+          aspect = cardImg.naturalWidth / cardImg.naturalHeight;
+        } else if (cardImg && cardImg.offsetWidth && cardImg.offsetHeight) {
+          aspect = cardImg.offsetWidth / cardImg.offsetHeight;
+        }
+
+        let targetW, targetH;
+        if (maxW / maxH > aspect) {
+          targetH = maxH;
+          targetW = targetH * aspect;
+        } else {
+          targetW = maxW;
+          targetH = targetW / aspect;
+        }
+
+        const targetTop = cRect.top + (cRect.height - targetH) / 2;
+        const targetLeft = cRect.left + (cRect.width - targetW) / 2;
+
+        destRect = {
+          top: targetTop,
+          left: targetLeft,
+          width: targetW,
+          height: targetH
+        };
+      }
+    }
+
     modal.classList.remove('is-open');
     modal.style.visibility = '';
 
@@ -209,20 +252,12 @@
     let slideStartX = '100%';
     let slideStartY = '30px';
 
-    if (srcRect) {
-      const cardCenter = srcRect.left + srcRect.width / 2;
-      const screenCenter = window.innerWidth / 2;
-      
-      if (window.innerWidth <= 768) {
-        // Mobile: slide up
-        slideStartY = '50px';
-      } else if (fromMenu) {
-        // Menu products always slide in from right on PC
-        slideStartX = '100%';
-      } else {
-        // Left side cards slide in from left, right side slide in from right
-        slideStartX = cardCenter < screenCenter ? '-100%' : '100%';
-      }
+    if (window.innerWidth <= 768) {
+      // Mobile: slide up
+      slideStartY = '50px';
+    } else {
+      // PC: info panel is on the right side of 2-column layout, so ALWAYS slide in from right
+      slideStartX = '100%';
     }
 
     // Set panel transition start positions

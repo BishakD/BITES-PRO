@@ -240,18 +240,23 @@
 
   // ── Featured Product Animation ───────────────────────────
   function initFeaturedAnimation() {
+    const featured = document.querySelector('.featured');
     const bgWord = document.querySelector('.featured__bg-word');
     const productImg = document.querySelector('.featured__image');
+    const content = document.querySelector('.featured__content');
 
+    if (!featured) return;
+
+    // 1. Background Big Word horizontal parallax drift on scroll (balanced around center)
     if (bgWord) {
       gsap.fromTo(bgWord,
-        { xPercent: -50, yPercent: -50 },
+        { xPercent: -40, yPercent: -50 },
         {
-          xPercent: -65,
+          xPercent: -60,
           yPercent: -50,
           ease: 'none',
           scrollTrigger: {
-            trigger: '.featured',
+            trigger: featured,
             start: 'top bottom',
             end: 'bottom top',
             scrub: 1
@@ -260,40 +265,69 @@
       );
     }
 
+    // 2. Product image smooth parallax movement on scroll
     if (productImg) {
-      gsap.from(productImg, {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.featured',
-          start: '20% bottom',
-          toggleActions: 'play none none none'
+      gsap.fromTo(productImg,
+        { y: 50, opacity: 0.8 },
+        {
+          y: -50,
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: featured,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
         }
-      });
+      );
+    }
+
+    // 3. Content reveal animation when scrolled into view
+    if (content) {
+      gsap.fromTo(content,
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: featured,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
     }
   }
 
   // ── Pattern Field Animation ──────────────────────────────
   function initPatternAnimation() {
+    const patternSection = document.querySelector('.pattern-field');
     const rows = document.querySelectorAll('.pattern-field__row');
-    if (!rows.length) return;
+    if (!patternSection || !rows.length) return;
 
     rows.forEach((row, i) => {
-      const direction = row.classList.contains('pattern-field__row--solid') ? -1 : 1;
-      const speed = 10 + (i % 3) * 4; // Varying speeds
+      const isSolid = row.classList.contains('pattern-field__row--solid');
+      // Alternate direction: solid rows move left (-1), outline rows move right (1)
+      const direction = isSolid ? -1 : 1;
+      const travelDistance = 10 + (i % 2) * 5; // Balanced viewport travel distance
 
-      gsap.to(row, {
-        x: `${direction * speed}vw`,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.pattern-field',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
+      // Smooth symmetric scroll scrub (from -travelDistance to +travelDistance) preventing blank edge gaps
+      gsap.fromTo(row,
+        { x: `${-direction * travelDistance}vw` },
+        {
+          x: `${direction * travelDistance}vw`,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: patternSection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8
+          }
         }
-      });
+      );
     });
   }
 
